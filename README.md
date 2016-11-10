@@ -16,6 +16,11 @@ Under /etc/init.d place watchdogsd (again, make sure it's executable)
 
 in watchdog.cfg configure your email, which service to monitor, in what intervals to check and how much time between each restart attempt amd how many of those attempts.
 
+Defaults are
+*60 seconds between checks
+*5 restart attempts
+*15 seconds between each restart
+
 Then run:
 sudo service watchdogsd start
 
