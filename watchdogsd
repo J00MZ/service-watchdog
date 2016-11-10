@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+### BEGIN INIT INFO
+# Provides:          watchdogsd
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Should-Start:
+# Should-Stop:
+# Short-Description: Daemonized watchdogsd service.
+### END INIT INFO
+# chkconfig: 2345 90 60
+name="watchdogsd"
+command="/home/user/watchdog.sh"
+command_args="/home/user/watchdog.cfg"
+daemon="/usr/local/bin/daemon"
+[ -x "$daemon" ] || exit 0
+# This can be customized as needed
+daemon_start_args="--respawn"
+pidfiles="/var/run"
+user=""
+chroot=""
+chdir=""
+umask=""
+stdout="daemon.info"
+stderr="daemon.err"
+function start()
+{
+    if "$daemon" --running --name "$name" --pidfiles "$pidfiles"
+        then
+            echo "$name is already running."
+        else
+            echo -n "Starting $name..."
+            "$daemon" $daemon_start_args --name "$name" --pidfiles "$pidfiles" ${user:+--user $user} ${chroot:+--chroot $chroot}                 ${chdir:+--chdir $chdir} ${umask:+--umask $umask} ${stdout:+--stdout $stdout} ${stderr:+--stderr $stderr} -- "$command" $command_args
+            echo done.
+        fi
+}
+function stop()
+{
+    if "$daemon" --running --name "$name" --pidfiles "$pidfiles"
+        then
+            echo -n "Stopping $name..."
+            "$daemon" --stop --name "$name" --pidfiles "$pidfiles"
+            echo done.
+        else
+            echo "$name is not running."
+        fi
+}
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart|reload)
+       stop
+       sleep 3
+       start
+        ;;
+    status)
+        "$daemon" --running --name "$name" --pidfiles "$pidfiles" --verbose
+        ;;
+    *)
+        echo "usage: $0 <start|stop|restart|reload|status>" >&2
+        exit 1
+esac
+exit 0
