@@ -19,8 +19,8 @@ in watchdog.cfg configure your email, which service to monitor, in what interval
 Then run:
 sudo service watchdogsd start
 
-That's it!
-
-To change the service being monitored just update <SERVICE_NAME> in watchdog.cfg and run:
+The current configuration is monitoring sshd
+To change the service being monitored just update SERVICE_NAME in watchdog.cfg and run:
 sudo service watchdogsd restart
 
+That's it!
