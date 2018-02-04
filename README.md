@@ -19,6 +19,7 @@ The following parameters are configurable via config file `watchdog.cfg`
 `chmod +x watchdog.sh watchdogsd`  
 `mv watchdog.sh watchdog.cfg /home/user`  
 `sudo mv watchdogsd /etc/init.d`  
+  
 Then run:  
 `sudo service watchdogsd start`
 
