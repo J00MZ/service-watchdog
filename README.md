@@ -36,4 +36,4 @@ To save updated changes run:
 
 ## Logging
 Service logs activity to `/var/log/watchdog_check.log`  
-This is also configurable in `watchdog.cfg` file
+The logfile used is also configurable in `watchdog.cfg` file
