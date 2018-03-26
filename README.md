@@ -24,11 +24,11 @@ Then run:
 `sudo service watchdogsd start`
 
 ## Configuration 
-Change defaults in `watchdog.cfg` to your desired configuration.  
+Set the following in `watchdog.cfg` to your desired configuration.  
 - **SERVICE_NAME** - *default: **`sshd`** service*
-- **CHECK_INTERVAL** - *default: **60** seconds between checks*  
-- **MAX_ATTEMPTS** - *default: **5** restart attempts*
-- **STARTUP_INTERVAL** - *default: **15** seconds between each restart*
+- **CHECK_INTERVAL** - *default: **`60`** seconds between checks*  
+- **MAX_ATTEMPTS** - *default: **`5`** restart attempts*
+- **STARTUP_INTERVAL** - *default: **`15`** seconds between each restart*
 - **ADMIN_EMAIL** - *default: example email*
 
 To save updated changes run:  
