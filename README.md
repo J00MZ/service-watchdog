@@ -11,7 +11,8 @@ The following parameters are configurable via config file `watchdog.cfg`
 
 ## Dependencies
 
-[Daemon](http://www.libslack.org/daemon/) installed on your system.
+- [Daemon](http://www.libslack.org/daemon/) installed on your system.
+- Mail Transfer Agent must be running for sending emails.
 
 ## Installation
 `git clone git@github.com:J00MZ/service-watchdog.git`  
