@@ -1,5 +1,5 @@
-# service-watchdog
-Linux 'watchdog' service that monitors uptime of other Linux system services.  
+# `service-watchdog`
+Linux watchdog service that monitors uptime of other Linux system services.  
 The service will check and attempt to restart a service if it's down.
 
 The following parameters are configurable via config file `watchdog.cfg`
@@ -15,11 +15,13 @@ The following parameters are configurable via config file `watchdog.cfg`
 - Mail Transfer Agent must be running for sending emails.
 
 ## Installation
-`git clone git@github.com:J00MZ/service-watchdog.git`  
-`cd service-watchdog`  
-`chmod +x watchdog.sh watchdogsd`  
-`mv watchdog.sh watchdog.cfg /home/user`  
-`sudo mv watchdogsd /etc/init.d`  
+```shell
+git clone git@github.com:J00MZ/service-watchdog.git
+cd service-watchdog
+chmod +x watchdog.sh watchdogsd
+mv watchdog.sh watchdog.cfg /home/<USER>
+sudo mv watchdogsd /etc/init.d
+```
   
 Then run:  
 `sudo service watchdogsd start`
